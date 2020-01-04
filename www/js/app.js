@@ -21,6 +21,14 @@ angular.module('starter', ['ionic']) //array of requires
                 abstract: true, //shouldn't navigate through it
                 templateUrl: 'templates/tabs.html'
             })
+            .state('tabs.home', { //child of tabs
+                url: '/home',
+                views: {
+                    'home-tab': {
+                        templateUrl: 'templates/home.html'
+                    }
+                }
+            })
             .state('tabs.list', { //child of tabs
                 url: '/list',
                 views: {
@@ -30,7 +38,7 @@ angular.module('starter', ['ionic']) //array of requires
                     }
                 }
             })
-        $urlRouterProvider.otherwise('/tab/list'); //redirect to tabs.list if the specified route doesn't exist 
+        $urlRouterProvider.otherwise('/tab/home'); //redirect to home if the specified route doesn't exist 
     })
 
     //adding a controller for the module we started in line 3
