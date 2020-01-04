@@ -38,13 +38,24 @@ angular.module('starter', ['ionic']) //array of requires
                     }
                 }
             })
+            .state('tabs.detail', { //child of tabs
+                url: '/list/:aID',
+                views: {
+                    'list-tab': { //belongs to the list-tab
+                        templateUrl: 'templates/detail.html',
+                        controller: 'ListController'
+                    }
+                }
+            })
         $urlRouterProvider.otherwise('/tab/home'); //redirect to home if the specified route doesn't exist 
     })
 
     //adding a controller for the module we started in line 3
-    .controller('ListController', ['$scope', '$http', function ($scope, $http) {
+    //$state for passing variables between routes through parameters
+    .controller('ListController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
         $http.get('js/data.json').success(function (data) { //storing data in artists variable if successful
             $scope.artists = data.artists;
+            $scope.whichArtist = $state.params.aID;
 
             $scope.onItemDelete = function (item) {
                 $scope.artists.splice($scope.artists.indexOf(item), 1);
