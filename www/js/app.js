@@ -56,6 +56,10 @@ angular.module('starter', ['ionic']) //array of requires
         $http.get('js/data.json').success(function (data) { //storing data in artists variable if successful
             $scope.artists = data.artists;
             $scope.whichArtist = $state.params.aID;
+            $scope.data = {
+                showDelete: false,
+                showReorder: false
+            };
 
             $scope.onItemDelete = function (item) {
                 $scope.artists.splice($scope.artists.indexOf(item), 1);
