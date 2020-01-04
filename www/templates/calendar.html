@@ -6,14 +6,14 @@ and the other about the schedule(array of objects)
 <ion-view view-title="Calendar">
     <!--search-->
     <div class="bar bar-subheader item-input-inset bar-light">
-		<label class="item-input-wrapper">
-			<i class="icon ion-search placeholder-icon"></i>
-			<input ng-model="query" type="search" placeholder="Search">
-		</label>
+        <label class="item-input-wrapper">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input ng-model="query" type="search" placeholder="Search">
+        </label>
     </div>
-    
-    <ion-content class="has-subheader">
 
+    <ion-content class="has-subheader">
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
         <div class="day" ng-repeat="(dayIndex, day) in calendar">
             <div class="tem item-divider item-divider-calm">
                 {{day.weekday}}
@@ -23,19 +23,23 @@ and the other about the schedule(array of objects)
                 <h2>{{day.title}}</h2>
                 <p>{{day.description}}</p>
             </div><!-- show daytitle if exists -->
-            
+
             <ion-list>
                 <ion-item ng-class="{'item-avatar': item.shortname, 'star': item.star}"
-                    class="item-text-wrap item-icon-right"
-                    ng-repeat="item in day.schedule | filter: query"
-                    href="#">
-                    <img ng-show="item.shortname"
-                        ng-src="img/{{item.shortname}}_tn.jpg"
-                        alt="{{item.name}} Photo">
+                    class="item-text-wrap item-icon-right" ng-repeat="item in day.schedule | filter: query" href="#">
+                    <img ng-show="item.shortname" ng-src="img/{{item.shortname}}_tn.jpg" alt="{{item.name}} Photo">
                     <h2>{{item.time}}</h2>
                     <h3>{{item.title}}</h3>
                     <h4>{{item.artist ? ' with ' + item.artist : ''}}</h4>
                     <p>{{day.description}}</p>
+                    <button class="button button-clear icon ion-star button-assertive" ng-click="toggleStar(item)"
+                        ng-show="item.star"></button>
+                    <ion-option-button class="button-dark" ng-click="toggleStar(item)">
+                        <i class="icon ion-star"></i>
+                    </ion-option-button>
+                    <ion-option-button class="button-assertive" ng-click="onItemDelete(dayIndex, item)">
+                        <i class="icon ion-trash-a"></i>
+                    </ion-option-button>
                 </ion-item>
             </ion-list>
         </div><!--loop with dayIndex and value-->
