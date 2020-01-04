@@ -12,3 +12,10 @@ angular.module('starter', ['ionic']) //array of requires
         }
     });
 })
+
+//adding a controller for the module we started in line 3
+.controller('ListController', ['$scope', '$http', function($scope, $http) {
+    $http.get('js/data.json').success(function(data) { //storing data in artists variable if successful
+        $scope.artists = data;  
+    });
+}]);
