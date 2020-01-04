@@ -17,9 +17,11 @@ angular.module('starter', ['ionic']) //array of requires
 .controller('ListController', ['$scope', '$http', function($scope, $http) {
     $http.get('js/data.json').success(function(data) { //storing data in artists variable if successful
         $scope.artists = data.artists;
+
         $scope.onItemDelete = function (item) {
             $scope.artists.splice($scope.artists.indexOf(item), 1);
         };
+        
         $scope.moveItem = function (item, fromIndex, toIndex) {
             $scope.artists.splice(fromIndex, 1);
             $scope.artists.splice(toIndex, 0, item);
