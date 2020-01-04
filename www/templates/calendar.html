@@ -22,7 +22,22 @@ and the other about the schedule(array of objects)
             <div ng-show="day.title" class="item item-list item-text-wrap dayhighlight">
                 <h2>{{day.title}}</h2>
                 <p>{{day.description}}</p>
-            </div><!-- show daytitle if exists -->           
+            </div><!-- show daytitle if exists -->
+            
+            <ion-list>
+                <ion-item ng-class="{'item-avatar': item.shortname, 'star': item.star}"
+                    class="item-text-wrap item-icon-right"
+                    ng-repeat="item in day.schedule | filter: query"
+                    href="#">
+                    <img ng-show="item.shortname"
+                        ng-src="img/{{item.shortname}}_tn.jpg"
+                        alt="{{item.name}} Photo">
+                    <h2>{{item.time}}</h2>
+                    <h3>{{item.title}}</h3>
+                    <h4>{{item.artist ? ' with ' + item.artist : ''}}</h4>
+                    <p>{{day.description}}</p>
+                </ion-item>
+            </ion-list>
         </div><!--loop with dayIndex and value-->
     </ion-content>
 </ion-view>
