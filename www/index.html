@@ -31,6 +31,7 @@
         </label>
       </div>
       <ion-content class="has-subheader">
+		<ion-refresher on-refresh="doRefresh()"></ion-refresher>  
 		<ion-list
 			show-reorder="data.showReorder"
 			show-Delete="data.showDelete"
