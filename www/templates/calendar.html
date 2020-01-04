@@ -1,0 +1,28 @@
+<!--
+each calendar item has 2 sets of data
+one about the day
+and the other about the schedule(array of objects)
+-->
+<ion-view view-title="Calendar">
+    <!--search-->
+    <div class="bar bar-subheader item-input-inset bar-light">
+		<label class="item-input-wrapper">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input ng-model="query" type="search" placeholder="Search">
+		</label>
+    </div>
+    
+    <ion-content class="has-subheader">
+
+        <div class="day" ng-repeat="(dayIndex, day) in calendar">
+            <div class="tem item-divider item-divider-calm">
+                {{day.weekday}}
+            </div><!-- item divider -->
+
+            <div ng-show="day.title" class="item item-list item-text-wrap dayhighlight">
+                <h2>{{day.title}}</h2>
+                <p>{{day.description}}</p>
+            </div><!-- show daytitle if exists -->           
+        </div><!--loop with dayIndex and value-->
+    </ion-content>
+</ion-view>
