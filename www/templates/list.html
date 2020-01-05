@@ -28,7 +28,7 @@
 				<p>{{item.bio | limitTo: 150}}{{item.bio.length > 150 ? '...' : ''}}</p>
 				<button class="button button-clear icon ion-star button-assertive" ng-click="toggleStar(item)"
 					ng-show="item.star"></button>
-				<ion-option-button class="button-dark" ng-click="toggleStar(item)">
+				<ion-option-button class="button-positive" ng-click="toggleStar(item)">
 					<i class="icon ion-star"></i>
 				</ion-option-button>
 				<ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)"></ion-delete-button>

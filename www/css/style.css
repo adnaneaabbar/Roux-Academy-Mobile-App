@@ -1,6 +1,11 @@
 /* Empty. Add your own CSS if you like */
+
+body {
+    cursor: url('http://ionicframework.com/img/finger.png');
+}
+
 .star>.item-content {
-    background-color: rgb(177, 220, 228) !important;
+    background-color: rgb(249, 255, 158) !important;
 }
 
 .splash {
@@ -13,8 +18,48 @@
 
 .branding {
     width: 50%;
-    max-width: 210px;
+    max-width: 300px;
     margin: 0 auto;
     margin-top: 20px;
     text-align: center;
+}
+
+.tagline {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.branding p {
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+.item-divider {
+    background: rgb(235, 235, 235);
+}
+
+.bar-positive, .tabs-positive>.tabs {
+    background-color: #417D9A !important;
+    border-color: #417D9A;
+}
+
+.item-thumbnail-left img {
+    border-radius: 10px;
+}
+
+.item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #417D9A;
+}
+
+.dayhighlight {
+    background-color: #c3dae9;
+    border-top: 20px solid #417D9A;
+}
+
+.dayhighlight h2 {
+    color: #417D9A;
+    font-size: 2rem;
+    font-weight: 350;
 }
